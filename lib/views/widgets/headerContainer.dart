@@ -1,0 +1,33 @@
+
+import 'package:flutter/material.dart';
+import 'package:ktebbi/core/constants/color.dart';
+import 'package:ktebbi/views/widgets/CircularContainer.dart';
+import 'package:ktebbi/views/widgets/curvedEdges.dart';
+
+class HeaderContainer extends StatelessWidget {
+  const HeaderContainer({
+    super.key, required this.child,
+  });
+  final Widget child ; 
+  @override
+  Widget build(BuildContext context) {
+    return ClipPath(
+     clipper:CurvedEdges(),
+      child: Container(
+         color: AppColor.primary,
+         padding: const EdgeInsets.all(0),
+         child: SizedBox(
+           child: Stack(
+             children: [
+               Positioned(top: -150, right: -250,child:                   CircularContainer(backgroundColor: AppColor.textWhite.withOpacity(0.1),),) ,
+               Positioned(top: 100, right: -300,child:                   CircularContainer(backgroundColor: AppColor.textWhite.withOpacity(0.1),),) ,
+               child
+             
+             ],
+           ),
+         ),
+         
+      ),
+    );
+  }
+}

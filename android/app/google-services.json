@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "184847981670",
+    "project_id": "ktebi-3c8e4",
+    "storage_bucket": "ktebi-3c8e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184847981670:android:560a01d3fa8f5cce9fa1a7",
+        "android_client_info": {
+          "package_name": "com.example.ktebbi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ5jWWKTsBaGcuria9KjtMbHiMeAs6LtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
