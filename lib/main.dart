@@ -16,6 +16,7 @@ import 'package:ktebbi/routes.dart';
 import 'package:ktebbi/utils/theme/theme.dart';
 import 'package:ktebbi/views/screens/BookDetails.dart';
 import 'package:ktebbi/views/screens/Home.dart';
+import 'package:ktebbi/views/screens/SplashScreen.dart';
 import 'package:ktebbi/views/screens/WishList.dart';
 import 'package:ktebbi/views/screens/auth/verifyCode.dart';
 import 'package:ktebbi/views/screens/auth/verifyEmail.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
       locale: controller.language,
       title: 'Flutter Demo',
       initialBinding: InitialBinding(),
-      // home: const NavigationMenu(),
+      // home: const SplashScreen(),
       getPages: routes,
     );
   }

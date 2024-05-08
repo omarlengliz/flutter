@@ -3,6 +3,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:ktebbi/core/constants/routes.dart';
 import 'package:ktebbi/core/middlewares/middleware.dart';
 import 'package:ktebbi/views/screens/BookDetails.dart';
+import 'package:ktebbi/views/screens/SplashScreen.dart';
 import 'package:ktebbi/views/screens/auth/login.dart';
 import 'package:ktebbi/views/screens/auth/register.dart';
 import 'package:ktebbi/views/screens/auth/verifyCode.dart';
@@ -14,7 +15,9 @@ import 'package:ktebbi/views/widgets/navigationMenu.dart';
 
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(name: "/", page: () => const Language() , middlewares: [
+
+  GetPage(name: "/", page: () => const SplashScreen() ),
+  GetPage(name: "/first", page: () => const Language() , middlewares: [
     MyMiddleWare()
   ]),
 
