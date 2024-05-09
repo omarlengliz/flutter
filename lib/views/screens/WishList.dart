@@ -21,8 +21,6 @@ class whishList extends StatelessWidget {
         child: Column(
           children: [
             AppBarCustom(
-        title: Text("Whishlist"),
-        leadingIcon: Icons.arrow_back_ios,
         onLeadingTap: (){},
       ),
              GetBuilder<BookControllerImp>(builder: (contoller) {
@@ -32,8 +30,8 @@ class whishList extends StatelessWidget {
                   );
                 } else {
                   if (contoller.wishlist.isEmpty) {
-                    return const Center(
-                      child: Text("Whishlist is empty"),
+                    return  Center(
+                      child: Text("wishlistEmpty".tr, style: TextStyle(fontSize: 20), textAlign: TextAlign.center),
                     );
                   } else {
                     return Column(

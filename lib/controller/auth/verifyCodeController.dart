@@ -13,7 +13,6 @@ abstract class VerifyCodeController extends GetxController {
 class VerifyCodeControllerImpl extends VerifyCodeController {
   StatusRequest? statusRequest;
   String? email;
-  VerifyCode verifyCode = VerifyCode(Get.find());
 
   @override
   verifyCodeFunc(String pin ) async {

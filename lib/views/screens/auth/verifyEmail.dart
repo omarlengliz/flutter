@@ -37,11 +37,11 @@ class VerifyEmail extends StatelessWidget {
               children: [
                 Image(image: const AssetImage(AppImageAsset.darklogo ) , width: THelperFunctions.screenWidth()*0.6 ,) , 
                 const SizedBox(height:TSizes.spaceBtwSections,) ,
-                Text("Verify your email address" , style: Theme.of(context).textTheme.headlineMedium ,textAlign: TextAlign.center,) ,
+                Text("Verify".tr , style: Theme.of(context).textTheme.headlineMedium ,textAlign: TextAlign.center,) ,
                 const SizedBox(height:TSizes.spaceBtwItems,) ,
                 Text("${controller.email}" , style: Theme.of(context).textTheme.labelLarge ,textAlign: TextAlign.center,) ,
                 const SizedBox(height:TSizes.spaceBtwItems,) ,
-                Text("🎉 Congratulations! Your Ktebi account is ready and waiting for you to dive into a world of literary delights! 📚 Simply verify your email to begin your journey of exploring a vast collection of books" , style: Theme.of(context).textTheme.labelLarge ,textAlign: TextAlign.center,) ,
+                Text("CongratulationsMessage".tr , style: Theme.of(context).textTheme.labelLarge ,textAlign: TextAlign.center,) ,
                 const SizedBox(height:TSizes.spaceBtwSections,) ,
                 SizedBox(
                   width: double.infinity,
@@ -49,7 +49,7 @@ class VerifyEmail extends StatelessWidget {
                     onPressed: () {
                      controller.goToVerify() ;  
                     },
-                    child: const Text("Continue"),
+                    child:  Text("Continue".tr),
                   ),
                 ) ,
                 const SizedBox(height:TSizes.spaceBtwItems,)  , 
@@ -59,7 +59,7 @@ class VerifyEmail extends StatelessWidget {
                     onPressed: () {
                         controller.sendVerificationCode() ; 
                     },
-                    child: const Text("Resend Email" , style: TextStyle(color: AppColor.primary)),
+                    child:  Text("Resend".tr , style: TextStyle(color: AppColor.primary)),
                   ),
                 )
           

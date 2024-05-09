@@ -21,6 +21,7 @@ import 'package:ktebbi/views/screens/WishList.dart';
 import 'package:ktebbi/views/screens/auth/verifyCode.dart';
 import 'package:ktebbi/views/screens/auth/verifyEmail.dart';
 import 'package:ktebbi/views/screens/language.dart';
+import 'package:ktebbi/views/screens/maps.dart';
 import 'package:ktebbi/views/screens/settings.dart';
 import 'package:ktebbi/views/screens/test.dart';
 import 'package:ktebbi/views/widgets/navigationMenu.dart';
@@ -28,10 +29,38 @@ import 'package:ktebbi/views/widgets/navigationMenu.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
     Gemini.init(apiKey: 'AIzaSyDZKAbD72zX360Brb8Y7j1mo0Blc6wuQeQ');
-
+  
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
+Future<void> handleOnMessage(RemoteMessage message) async {
+  print("onBackgroundMessage: $message");
+}
+await FirebaseMessaging.instance.requestPermission(
+  alert: true,
+  badge: true,
+  provisional: true,
+  carPlay: true,
+  criticalAlert: true,
+  sound: true,
+
+
+) ; 
+FirebaseMessaging.onBackgroundMessage(handleOnMessage) ; 
+FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    // Handle incoming message
+  });
+FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+    print('A new onMessageOpenedApp event was published!');
+  });
+FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+  alert: true,
+  badge: true,
+  sound: true,
+);
+
+String? fcmToken = await FirebaseMessaging.instance.getToken();
+    print(fcmToken);
   await initialService() ; 
   DependencyInjection.init(); 
 
@@ -55,8 +84,8 @@ class MyApp extends StatelessWidget {
       locale: controller.language,
       title: 'Flutter Demo',
       initialBinding: InitialBinding(),
-      // home: const SplashScreen(),
-      getPages: routes,
+      home:  MapScreen(),
+      // getPages: routes,
     );
   }
 }

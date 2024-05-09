@@ -50,7 +50,7 @@ class SplashScreen extends StatelessWidget {
               //   height: 40,
               // ),
               Text(
-                'welcome to Ktebi',
+                'welcomeMessage'.tr,
                 style: Theme.of(context).textTheme.headlineMedium!.apply(
                     color: dark ? AppColor.light : AppColor.dark,
                     fontWeightDelta: 2),

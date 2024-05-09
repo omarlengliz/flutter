@@ -27,6 +27,7 @@ class SignUpControllerImp extends SignUpController {
   @override
   signUp() async {
     String? fcmToken = await FirebaseMessaging.instance.getToken();
+    print(fcmToken);
 
     statusRequest = StatusRequest.loading;
     update();

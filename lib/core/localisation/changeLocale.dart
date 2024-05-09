@@ -10,7 +10,6 @@ class LocaleController extends GetxController{
     
     myServices.sharedPreferences.setString("lang", codeLang) ; 
     Get.updateLocale(locale) ;
-    update();
   }
   @override
   void onInit() {

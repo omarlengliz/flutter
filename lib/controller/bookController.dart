@@ -109,7 +109,7 @@ class BookControllerImp extends BookController {
       loadFromWhishlist() ;
       update() ;
     }else{
-      Get.defaultDialog(title: "Warning", middleText: "Already in whishlist" ) ; 
+      Get.defaultDialog(title: "Warning", middleText: "BookAlreadyInWishlist".tr ) ; 
     }
     // TODO: implement addToWhishlist
   }

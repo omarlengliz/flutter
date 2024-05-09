@@ -60,8 +60,15 @@ class MyTranslations extends Translations{
   "ContinueRead": "متابعة القراءة",
   "Read": "اقرأ",
   "Home":"الصفحةالرئيسية",
-  "whishlist" : "" , 
-  "Welcome":"اهلا"
+  "whishlist" : "قائمة المفضلة" , 
+  "Welcome":"اهلا" , 
+  "logout" : "تسجيل الخروج" , 
+  "welcomeMessage" : "مرحبا بك في ktbi" ,
+  "wishlistEmpty" : "قائمة المفضلة فارغة" ,
+  "BookAlreadyInWishlist" : "الكتاب موجود بالفعل في قائمة المفضلة" ,
+  "summaryTitle" :"ملخص" ,
+  "summaryClick":"انقر هنا لتلخيص الكتاب" ,
+
 } , 
 
        "fr": {
@@ -125,6 +132,15 @@ class MyTranslations extends Translations{
       "ReadMessage": "Vous n'avez pas encore lu le livre",
       "ContinueRead": "Continuer la lecture",
       "Read": "Lire",
+  "Home":"page principale",
+  "whishlist" : "liste des favoris" , 
+  "Welcome":"Bienvenue" , 
+  "logout" : "Se déconnecter" , 
+  "welcomeMessage" : "Bienvenue sur Ktebi" ,
+  "wishlistEmpty" : "Votre liste des favorites est vide" ,
+  "BookAlreadyInWishlist":  "Le livre est déjà dans la liste de souhaits" ,
+  "summaryTitle" :"Résumé" ,
+  "summaryClick":"Cliquez ici pour résumer le livre" ,
     } , 
     "en" :  {
       "ChooseLanguage" : "Choose  a language" , 
@@ -182,6 +198,16 @@ class MyTranslations extends Translations{
       "ReadMessage":"You have not read the book yet" ,
       "ContinueRead":"Continue Reading" ,
       "Read" :"Read" ,
+      "Home":"Home",
+      "whishlist" : "whishlist" ,
+      "Welcome":"Welcome" ,
+      "logout" : "Logout" , 
+      "welcomeMessage" : "Welcome to Ktebi" ,
+      "wishlistEmpty" : "Your wishlist is empty" ,
+      "BookAlreadyInWishlist":  "The book is already in the wishlist" ,
+      "summaryTitle" :"Summary" ,
+      "summaryClick":"Click here to summarize the book" ,
+
 
     }
   };

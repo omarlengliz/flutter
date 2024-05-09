@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:ktebbi/controller/auth/LogoutController.dart';
+import 'package:ktebbi/core/Theme/Theme.dart';
 import 'package:ktebbi/core/class/statusRequest.dart';
 import 'package:ktebbi/core/constants/color.dart';
 import 'package:ktebbi/core/constants/imageassets.dart';
 import 'package:ktebbi/core/constants/sizes.dart';
 import 'package:ktebbi/core/functions/helper.dart';
+import 'package:ktebbi/core/localisation/changeLocale.dart';
 import 'package:ktebbi/data/datasource/static/static.dart';
+import 'package:ktebbi/views/widgets/LanguageAppButton.dart';
 import 'package:ktebbi/views/widgets/ModeAppButton.dart';
 import 'package:ktebbi/views/widgets/appBar.dart';
 import 'package:ktebbi/views/widgets/headerContainer.dart';
@@ -24,6 +27,39 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     var dark=THelperFunctions.isDarkMode(context) ;
     Get.put(LogoutControllerImp());
+    ThemeController themeController = Get.put(ThemeController()) ;
+  LocaleController localeController = Get.put(LocaleController()) ;
+  List<Widget> modes=[
+        ModeAppButton(title: "DarkMode".tr , onTap: (){
+         themeController.ChangeTheme("dark") ;
+        },) , 
+        ModeAppButton(title: "LightMode".tr, onTap: (){
+          themeController.ChangeTheme("light") ;
+        },)  , 
+        ModeAppButton(title: "SystemMode".tr, onTap: (){
+          themeController.ChangeTheme("default") ;
+        },) , 
+    ] ; 
+
+  List<Widget> languages=[
+        LanguageAppButton(title: "Arabic".tr, flagUrl: AppImageAsset.arFlag, onTap:(){
+          localeController.changeLang("ar") ;
+        } ,) ,
+        LanguageAppButton(title: "English".tr, flagUrl: AppImageAsset.enFlag,
+        onTap:(){
+          localeController.changeLang("en") ;
+
+        } ,
+        ) , 
+        LanguageAppButton(title: "French".tr, flagUrl: AppImageAsset.frFlag,
+
+        onTap:(){
+          localeController.changeLang("fr") ;
+
+          
+        } , 
+        ) ,
+    ] ;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -93,7 +129,7 @@ class Settings extends StatelessWidget {
                   
                       const SizedBox(height: TSizes.spaceBtwItems,) ,
                       ModeAppButton(
-                        title: "Logout".tr,
+                        title: "logout".tr,
                         onTap: () {
                          controller.logout();
                         },

@@ -10,13 +10,18 @@ class ThemeController extends GetxController{
     myServices.sharedPreferences.setString("mode", mode) ; 
     if(mode=="dark"){
       Get.changeThemeMode(ThemeMode.dark) ;
+      update() ; 
     }
     else if(mode=="light"){
 
       Get.changeThemeMode(ThemeMode.light) ;
+            update() ; 
+
     }else{
 
       Get.changeThemeMode(ThemeMode.system) ;
+            update() ; 
+
 
     }
 

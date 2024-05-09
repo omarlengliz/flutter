@@ -34,7 +34,7 @@ class VerifyCode extends StatelessWidget {
                           SizedBox(
                               width: double.infinity,
                               child: Text(
-                                "Verify Your OTP Code",
+                                "VerifyOTPTitle".tr,
                                 style: Theme.of(context).textTheme.headlineLarge,
                                 textAlign: TextAlign.center,
                               )),
@@ -44,7 +44,7 @@ class VerifyCode extends StatelessWidget {
                           SizedBox(
                               width: double.infinity,
                               child: Text(
-                                "Enter the OTP code sent to your email address : ",
+                                "VerifyOTPMessage".tr,
                                 style: Theme.of(context).textTheme.labelLarge,
                                 textAlign: TextAlign.center,
                               )),
