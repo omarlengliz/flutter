@@ -9,4 +9,5 @@ class AppRoute {
 
   static const String bookDetails = "/bookDetails" ;
   static const String read = "/readBook" ;
+  static const String ourStores = "/maps" ;
 }

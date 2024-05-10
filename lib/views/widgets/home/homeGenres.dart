@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:ktebbi/controller/bookController.dart';
 import 'package:ktebbi/controller/genreController.dart';
 import 'package:ktebbi/core/class/statusRequest.dart';
 import 'package:ktebbi/core/constants/color.dart';
 import 'package:ktebbi/core/constants/imageassets.dart';
-import 'package:ktebbi/data/datasource/remote/genre/Genre.dart';
 import 'package:ktebbi/data/model/Genre.dart';
 import 'package:ktebbi/views/widgets/home/verticalImageText.dart';
-import 'package:ktebbi/views/widgets/loader.dart';
 import 'package:ktebbi/views/widgets/roundedShimmer.dart';
 
 class HomeGenres extends StatelessWidget {
   const HomeGenres({
-    super.key,
+    super.key, required this.con,
   });
+  final BookControllerImp con ; 
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,9 @@ class HomeGenres extends StatelessWidget {
                     image: AppImageAsset.rootImages + '/' + genre.image,
                     title: genre.name,
                     onTap: () {
-                      
+                        
+                        con.setFilter(genre.name);
+                        con.fetchBooks() ; 
                     },
                   );
                 },

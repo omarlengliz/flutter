@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:ktebbi/core/class/statusRequest.dart';
 import 'package:ktebbi/core/constants/routes.dart';
 import 'package:ktebbi/core/functions/handlingData.dart';
-import 'package:ktebbi/data/datasource/remote/auth/verifyCode.dart';
 import "package:http/http.dart" as http;
 import 'package:ktebbi/linkapi.dart';
 

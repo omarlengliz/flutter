@@ -15,9 +15,9 @@ class NetworkController extends GetxController {
       
       if (connectivityResult == ConnectivityResult.none) {
         Get.rawSnackbar(
-          messageText: const Text(
-            'PLEASE CONNECT TO THE INTERNET',
-            style: TextStyle(
+          messageText:  Text(
+            'NetworkProblem'.tr,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 14
             )
@@ -34,15 +34,15 @@ class NetworkController extends GetxController {
         if (Get.isSnackbarOpen) {
           Get.closeCurrentSnackbar();
           Get.rawSnackbar(
-          messageText: const Text(
-            'OK',
-            style: TextStyle(
+          messageText:  Text(
+            "NetworkOK".tr,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 14
             )
           ),
           isDismissible: false,
-          duration: const Duration(seconds: 1),
+          duration: const Duration(seconds: 2),
           backgroundColor: Colors.green[400]!,
           icon : const Icon(Icons.wifi, color: Colors.white, size: 35,),
           margin: EdgeInsets.zero,

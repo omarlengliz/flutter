@@ -30,7 +30,7 @@ class NavigationMenu extends StatelessWidget {
             ),
             NavigationDestination(
               icon: Icon(Icons.favorite),
-              label: 'Wishlist'.tr,
+              label: 'whishlist'.tr,
             ),
             NavigationDestination(
               icon: Icon(Icons.settings),

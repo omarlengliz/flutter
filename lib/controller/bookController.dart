@@ -12,7 +12,6 @@ import 'package:ktebbi/core/services/services.dart';
 import 'package:ktebbi/data/model/Book.dart';
 import 'package:ktebbi/linkapi.dart';
 import "package:http/http.dart" as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class BookController extends GetxController {
     fetchBooks();
@@ -21,6 +20,7 @@ abstract class BookController extends GetxController {
     checkInWhichlist(BookModel book); 
     loadFromWhishlist() ; 
     goToBookDetail(String id) ; 
+    setFilter(String filter) ;
 }
 
 class BookControllerImp extends BookController {
@@ -28,55 +28,59 @@ class BookControllerImp extends BookController {
   StatusRequest? statusRequest;
   List<BookModel> wishlist = <BookModel>[] ;
   MyServices myServices = Get.find() ;
+  late String filter ;
  
 
   @override
   void onInit() {
     super.onInit();
     loadFromWhishlist() ;
+    setFilter("");
     fetchBooks(); 
     myServices.init() ;
     
 
   }
-  @override
-  Future<void> fetchBooks() async {
-    
-     const String apiUrl = AppLink.getBooks;
-    statusRequest = StatusRequest.loading;
-    update();
-    try {
-      final response = await http.get(Uri.parse(apiUrl));
-      statusRequest = handlingData(response);
-      if (StatusRequest.success == statusRequest) {
-        if (response.statusCode == 200) {
-          final jsonData = jsonDecode(response.body);
-          final List<dynamic> bookData = jsonData['data'];
-          for (var i = 0; i < bookData.length; i++) {
-           books.add (BookModel.fromJson(bookData[i]));
+ @override
+Future<void> fetchBooks() async {
+  const String apiUrl = AppLink.getBooks;
+  statusRequest = StatusRequest.loading;
+  update();
+  try {
+    final response = await http.get(Uri.parse(apiUrl));
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(response.body);
+        final List<dynamic> bookData = jsonData['data'];
+        for (var i = 0; i < bookData.length; i++) {
+          BookModel b = BookModel.fromJson(bookData[i]);
+          // Check if filter is set and matches the book's genre
+          if (filter.isNotEmpty && b.genre.name == filter) {
+            books.add(b);
+          } else if (filter.isEmpty) {
+            books.add(b);
           }
-         
-          statusRequest = StatusRequest.success;
-          update();
-        } else {
-          Get.defaultDialog(
-            title: 'Warning',
-            middleText: 'e',
-          );
+          print(books.length);
         }
+        statusRequest = StatusRequest.success;
+        update();
+      } else {
+        Get.defaultDialog(
+          title: 'Warning',
+          middleText: 'Unexpected error occurred while fetching books.',
+        );
       }
-    } catch (error) {
-      // Handle error
-      Get.defaultDialog(
-            title: 'Warning',
-            middleText: error.toString(),
-          );
+    }
+  } catch (error) {
+    // Handle error
+    Get.defaultDialog(
+      title: 'Warning',
+      middleText: error.toString(),
+    );
+  }
+}
 
-  }
-  
-  }
-  
-  
   
   @override
   Future<void> removeFromWhishlist(BookModel book) async {
@@ -135,6 +139,14 @@ class BookControllerImp extends BookController {
     Get.toNamed(AppRoute.bookDetails , arguments: {
       "id" : id
     }) ;
+  }
+  
+  @override
+  setFilter(String f) {
+    // TODO: implement setFilter
+    filter=f ; 
+    books.clear() ;
+    update() ; 
   }
 
 

@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(BookControllerImp());
+    final con = Get.put(BookControllerImp());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -51,18 +51,23 @@ class HomeView extends StatelessWidget {
                       children: [
                         SectionHeading(
                           title: "Genres".tr,
-                          buttonTitle: "View All".tr,
-                          showActionButton: false,
+                          buttonTitle: "ViewAll".tr,
+                          showActionButton: true,
+                          onButtonTap: () {
+                            con.setFilter("") ; 
+                            con.fetchBooks() ; 
+
+                          },
                         ),
                         SizedBox(
                           height: TSizes.spaceBtwItems,
                         ),
-                        HomeGenres(),
+                        HomeGenres(con:con),
 
                       ],
                     ),
                   ) , 
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
                 ],

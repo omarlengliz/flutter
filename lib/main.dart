@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:ktebbi/bindings/initialBindings.dart';
 import 'package:ktebbi/controller/dependcy_injection.dart';
 import 'package:ktebbi/core/Theme/Theme.dart';
-import 'package:ktebbi/core/class/crud.dart';
 
 import 'package:ktebbi/core/localisation/changeLocale.dart';
 import 'package:ktebbi/core/localisation/translation.dart';
@@ -14,17 +13,7 @@ import 'package:ktebbi/core/services/services.dart';
 import 'package:ktebbi/firebase_options.dart';
 import 'package:ktebbi/routes.dart';
 import 'package:ktebbi/utils/theme/theme.dart';
-import 'package:ktebbi/views/screens/BookDetails.dart';
-import 'package:ktebbi/views/screens/Home.dart';
-import 'package:ktebbi/views/screens/SplashScreen.dart';
-import 'package:ktebbi/views/screens/WishList.dart';
-import 'package:ktebbi/views/screens/auth/verifyCode.dart';
-import 'package:ktebbi/views/screens/auth/verifyEmail.dart';
-import 'package:ktebbi/views/screens/language.dart';
-import 'package:ktebbi/views/screens/maps.dart';
-import 'package:ktebbi/views/screens/settings.dart';
-import 'package:ktebbi/views/screens/test.dart';
-import 'package:ktebbi/views/widgets/navigationMenu.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +37,6 @@ await FirebaseMessaging.instance.requestPermission(
 ) ; 
 FirebaseMessaging.onBackgroundMessage(handleOnMessage) ; 
 FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    // Handle incoming message
   });
 FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
     print('A new onMessageOpenedApp event was published!');
@@ -59,8 +47,6 @@ FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
   sound: true,
 );
 
-String? fcmToken = await FirebaseMessaging.instance.getToken();
-    print(fcmToken);
   await initialService() ; 
   DependencyInjection.init(); 
 
@@ -84,8 +70,8 @@ class MyApp extends StatelessWidget {
       locale: controller.language,
       title: 'Flutter Demo',
       initialBinding: InitialBinding(),
-      home:  MapScreen(),
-      // getPages: routes,
+      // home:  MapScreen(),
+      getPages: routes,
     );
   }
 }

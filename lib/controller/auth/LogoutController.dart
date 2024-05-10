@@ -7,6 +7,7 @@ import 'package:ktebbi/core/services/services.dart';
 
 abstract class LogoutController extends GetxController {
   logout();
+  goMaps() ; 
  
 }
 
@@ -25,5 +26,10 @@ class LogoutControllerImp extends LogoutController {
 
     Get.offAllNamed("/login")  ;
 
+  }
+  
+  @override
+  goMaps() {
+    Get.toNamed("/maps") ; 
   }
 }

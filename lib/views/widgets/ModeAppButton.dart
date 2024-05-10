@@ -14,7 +14,7 @@ class ModeAppButton extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           title,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),

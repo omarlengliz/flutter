@@ -9,6 +9,7 @@ import 'package:ktebbi/views/screens/auth/register.dart';
 import 'package:ktebbi/views/screens/auth/verifyCode.dart';
 import 'package:ktebbi/views/screens/auth/verifyEmail.dart';
 import 'package:ktebbi/views/screens/language.dart';
+import 'package:ktebbi/views/screens/maps.dart';
 import 'package:ktebbi/views/screens/onboarding.dart';
 import 'package:ktebbi/views/screens/readPage.dart';
 import 'package:ktebbi/views/widgets/navigationMenu.dart';
@@ -29,6 +30,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.bookDetails, page: () => const BookDetails()),
   GetPage(name: AppRoute.read, page: () => const ReadPage()),
+  GetPage(name: AppRoute.ourStores, page:()=> MapScreen())
 
 ]  ; 
  

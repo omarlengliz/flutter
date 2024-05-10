@@ -9,7 +9,6 @@ import 'package:ktebbi/core/constants/imageassets.dart';
 import 'package:ktebbi/core/constants/sizes.dart';
 import 'package:ktebbi/core/functions/helper.dart';
 import 'package:ktebbi/core/localisation/changeLocale.dart';
-import 'package:ktebbi/data/datasource/static/static.dart';
 import 'package:ktebbi/views/widgets/LanguageAppButton.dart';
 import 'package:ktebbi/views/widgets/ModeAppButton.dart';
 import 'package:ktebbi/views/widgets/appBar.dart';
@@ -115,6 +114,7 @@ class Settings extends StatelessWidget {
                  Padding(
                   padding: const EdgeInsets.all(TSizes.defaultSpace),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                        SectionHeading(
                         title: ("AccountSettings".tr),
@@ -126,14 +126,41 @@ class Settings extends StatelessWidget {
                       SettingsMenuTile(icon:  Icons.language , title: "LanguageTitle".tr, subtitle: "LanguageMessage".tr , children: languages),
                       const SizedBox(height: TSizes.spaceBtwItems,) , 
                       // SettingsMenuTile(icon:  Icons.voice_chat , title: "Voice", subtitle: "select your reader voice" , trailing: Container(width: 25,) ,),
-                  
+                       Padding(
+                         padding: const EdgeInsets.all(15.0),
+                         child: Row(
+                          
+                          mainAxisAlignment: MainAxisAlignment.start,
+                           children: [
+                             Icon(Icons.gps_fixed , size:28 , color :AppColor.primary ),
+                         
+                             ModeAppButton(title: 'ourNearestStore'.tr , onTap: (){
+                             
+                                                       Get.toNamed("/maps") ; 
+                             
+                             },),
+                           ],
+                         ),
+                       ),
                       const SizedBox(height: TSizes.spaceBtwItems,) ,
-                      ModeAppButton(
-                        title: "logout".tr,
-                        onTap: () {
-                         controller.logout();
-                        },
-                      ),
+                      Padding(
+                         padding: const EdgeInsets.all(15.0),
+                         child: Row(
+                          
+                          mainAxisAlignment: MainAxisAlignment.start,
+                           children: [
+                             Icon(Icons.logout , size:28 , color :AppColor.primary ),
+                         
+                                  ModeAppButton(
+                              title: "logout".tr,
+                              onTap: () {
+                                controller.logout() ; 
+                              },
+                            ),
+                           ],
+                         ),
+                       ),
+                      
                     ],
             
                   ),

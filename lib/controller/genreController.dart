@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:ktebbi/core/class/statusRequest.dart';
 import 'package:ktebbi/core/functions/handlingData.dart';
-import 'package:ktebbi/data/datasource/remote/genre/Genre.dart';
 import "package:http/http.dart" as http;
 import 'package:ktebbi/data/model/Genre.dart';
 import 'package:ktebbi/linkapi.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ktebbi/core/constants/color.dart';
-import 'package:ktebbi/views/widgets/home/headingSection.dart';
 
 class SettingsMenuTile extends StatelessWidget {
   const SettingsMenuTile({super.key, required this.icon, required this.title, required this.subtitle, required this.children});

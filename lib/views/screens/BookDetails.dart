@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:ktebbi/controller/bookDetailsController.dart';
 import 'package:ktebbi/core/class/statusRequest.dart';
 import 'package:ktebbi/core/constants/color.dart';
-import 'package:ktebbi/core/constants/imageassets.dart';
 import 'package:ktebbi/core/constants/sizes.dart';
 import 'package:ktebbi/core/functions/helper.dart';
 import 'package:ktebbi/views/widgets/appBar.dart';
@@ -36,7 +35,7 @@ class BookDetails extends StatelessWidget {
           );
         } else {
           if(controller.statusRequest == StatusRequest.failure) {
-            return const Text("error") ;
+            return  Text("error".tr) ;
           } else {
             return Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -93,12 +92,12 @@ class BookDetails extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Summary" , style: Theme.of(context).textTheme.headlineLarge!.apply(color: dark?AppColor.light: AppColor.dark),) ,
+                    Text("summaryTitle".tr , style: Theme.of(context).textTheme.headlineLarge!.apply(color: dark?AppColor.light: AppColor.dark),) ,
                     MaterialButton(textTheme: Theme.of(context).buttonTheme.textTheme, onPressed: (){
                       controller.setExapnded(true) ;
                       controller.getSummary() ; 
                     },
-                    child: Text("Sumrraize th book right now"),
+                    child: Text("summaryClick".tr),
                     )
                 ],),
               ),
@@ -181,7 +180,7 @@ class BookDetails extends StatelessWidget {
                                 side:
                                     const BorderSide(color: AppColor.black)),
                             child: Text(
-                              controller.progress  > -1 ?  "ContinueRead" : "Read" ,
+                              controller.progress  > -1 ?  "ContinueRead".tr : "Read".tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .labelLarge!
@@ -192,8 +191,7 @@ class BookDetails extends StatelessWidget {
                             icon: Icons.share,
                             backgroundColor: AppColor.black.withOpacity(0.8),
                             onPressed: () async {
-                              final urlImage =
-                                  "https://images-platform.99static.com//PiHWJxAcOnC7gw197YEXKtyxDXQ=/fit-in/500x500/99designs-contests-attachments/39/39493/attachment_39493946";
+                              final urlImage = controller.book.imageUrl;
                               final url = Uri.parse(urlImage);
                               final response = await http.get(url);
                               final bytes = response.bodyBytes;
@@ -202,7 +200,7 @@ class BookDetails extends StatelessWidget {
                               File(path).writeAsBytesSync(bytes);
                               ;
                               await Share.shareFiles([path],
-                                  text: "The Hobbit", subject: "The Hobbit");
+                                  text: controller.book.name , subject: ("SubjectMessage".tr )  + controller.book.name);
                             },
                           ),
                         ],
@@ -313,7 +311,7 @@ class Genre extends StatelessWidget {
           Row(
             children: [
               Text(
-                "Genre",
+                "Genre".tr,
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall!

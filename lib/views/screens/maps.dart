@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
+import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
@@ -18,7 +19,9 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        title:  Text('ourNearestStore'.tr),
+      ) ,
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
@@ -38,7 +41,7 @@ class _MapScreenState extends State<MapScreen> {
               padding: const EdgeInsets.all(50),
               maxZoom: 15,
               markers: _markers,
-              polygonOptions: PolygonOptions(
+              polygonOptions: const PolygonOptions(
                   borderColor: Colors.blueAccent,
                   color: Colors.black12,
                   borderStrokeWidth: 3),
@@ -106,7 +109,7 @@ class _MapScreenState extends State<MapScreen> {
           // Ktebbi Store icon
           child: Card(child: Container(
             padding: const EdgeInsets.all(8.0),
-            child: const Text('Ktebbi Store'),
+            child:  Text('Store'.tr),
             
           
           ),),

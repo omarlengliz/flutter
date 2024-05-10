@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class MyTranslations extends Translations{
   @override
   Map<String, Map<String, String>> get keys => {
-    "ar": {
+"ar": {
   "ChooseLanguage": "اختر اللغة",
   "OnBoardingTitle1": "استكشف عالم المعرفة",
   "OnBoardingbody1": "استكشف مجموعة واسعة من الكتب تغطي مختلف الأنواع،\n المواضيع، والكتّاب.",
@@ -68,7 +68,11 @@ class MyTranslations extends Translations{
   "BookAlreadyInWishlist" : "الكتاب موجود بالفعل في قائمة المفضلة" ,
   "summaryTitle" :"ملخص" ,
   "summaryClick":"انقر هنا لتلخيص الكتاب" ,
-
+  "ourNearestStore" : "أقرب متجر لنا منك" ,
+  "Store" : "متجر ktebbi" , 
+  "SubjectMessage" :"تعال واقرأ هذا الكتاب : " , 
+  "NetworkProblem":"يرجى التحقق من اتصال الشبكة" ,
+  "NetworkOK":"تم استعادة الاتصال" ,
 } , 
 
        "fr": {
@@ -141,6 +145,12 @@ class MyTranslations extends Translations{
   "BookAlreadyInWishlist":  "Le livre est déjà dans la liste de souhaits" ,
   "summaryTitle" :"Résumé" ,
   "summaryClick":"Cliquez ici pour résumer le livre" ,
+  "ourNearestStore" : "Nos magasins les plus proches de vous" ,
+  "Store" : "Magasin Ktebbi",
+  "SubjectMessage" :"Venez lire ce livre : " , 
+  "NetworkProblem":"Veuillez vérifier votre connexion réseau" ,
+  "NetworkOK":"Votre connexion est rétabli" ,
+  
     } , 
     "en" :  {
       "ChooseLanguage" : "Choose  a language" , 
@@ -207,8 +217,11 @@ class MyTranslations extends Translations{
       "BookAlreadyInWishlist":  "The book is already in the wishlist" ,
       "summaryTitle" :"Summary" ,
       "summaryClick":"Click here to summarize the book" ,
-
-
+      "ourNearestStore" : "Our Nearest Stores From You" , 
+      "Store" : "Ktebbi Store"  , 
+      "SubjectMessage" :"Come and read this book : " , 
+      "NetworkProblem":"Please check your network connection" ,
+      "NetworkOK":"Connection is reestablished" ,
     }
   };
 

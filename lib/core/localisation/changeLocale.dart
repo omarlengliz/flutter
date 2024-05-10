@@ -20,7 +20,7 @@ class LocaleController extends GetxController{
     else if(sharedPreferencesLang=="en"){
       changeLang("en") ;
     }else{
-      changeLang("en") ;
+      changeLang("fr") ;
     }
     super.onInit();
   }

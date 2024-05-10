@@ -46,7 +46,9 @@ class BookCard extends StatelessWidget {
                     Positioned(
                       top: 0,
                       left: 0,
-                      child: RoundedIcon(icon: Icons.remove_red_eye, onPressed: (){
+                      child: RoundedIcon(
+                        color: dark? AppColor.white : AppColor.dark,
+                        icon: Icons.remove_red_eye, onPressed: (){
                         controler.goToBookDetail(book.id);
                       } , size: TSizes.lg,  )
                       ) , 
@@ -54,10 +56,12 @@ class BookCard extends StatelessWidget {
                     Positioned(
                       top: 0,
                       right: 0,
-                      child: RoundedIcon(icon: Icons.favorite, onPressed: (){
+                      child: RoundedIcon(
+                        
+                        icon: Icons.favorite, onPressed: (){
                         isWishlist? controler.removeFromWhishlist(book) : controler.addToWhishlist(book) ; 
                         controler.update();
-                      } , size: TSizes.lg, color : controler.checkInWhichlist(book) == true? Colors.red : AppColor.white))
+                      } , size: TSizes.lg, color : controler.checkInWhichlist(book) == true? Colors.red : dark ? AppColor.white : AppColor.dark))
                     
                   ],
                 ) ,

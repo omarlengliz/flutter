@@ -9,6 +9,7 @@ import 'package:ktebbi/core/constants/routes.dart';
 import "package:http/http.dart" as http;
 import 'package:ktebbi/core/functions/handlingData.dart';
 import 'package:ktebbi/core/services/services.dart';
+import 'package:ktebbi/data/model/User.dart';
 import 'package:ktebbi/linkapi.dart';
 
 abstract class LoginController extends GetxController {
@@ -16,6 +17,7 @@ abstract class LoginController extends GetxController {
   goToSignUp();
   goToForgetPassword();
   showPassword();
+  getUserDetails() ; 
 }
 
 class LoginControllerImp extends LoginController {
@@ -24,6 +26,7 @@ class LoginControllerImp extends LoginController {
   bool isshowpassword = true;
   StatusRequest? statusRequest;
   MyServices myServices = Get.find() ;
+  // late UserModel userModel  ;
 
 
  @override
@@ -87,6 +90,7 @@ class LoginControllerImp extends LoginController {
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
+    // userModel =  getUserDetails() ;
     super.onInit();
   }
 
@@ -100,5 +104,18 @@ class LoginControllerImp extends LoginController {
   @override
   goToForgetPassword() {
     Get.toNamed(AppRoute.forgetPassword);
+  }
+  
+  @override
+  getUserDetails() async {
+    final user = await myServices.sharedPreferences.getString("user") ; 
+    print(user) ; 
+    if(user != null) {
+      print(user) ; 
+      // print(userModel.firstname) ; 
+    }else {
+      print("hello");
+      
+    }
   }
 }

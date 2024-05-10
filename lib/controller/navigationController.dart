@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ktebbi/views/screens/Home.dart';
 import 'package:ktebbi/views/screens/WishList.dart';

@@ -1,13 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ktebbi/core/Theme/Theme.dart';
 import 'package:ktebbi/core/constants/imageassets.dart';
-import 'package:ktebbi/core/localisation/changeLocale.dart';
-import 'package:ktebbi/core/services/services.dart';
 import 'package:ktebbi/data/model/onBoarding.dart';
-import 'package:ktebbi/views/screens/language.dart';
-import 'package:ktebbi/views/widgets/LanguageAppButton.dart';
-import 'package:ktebbi/views/widgets/ModeAppButton.dart';
 
 List<OnBoardingModel> OnBoardingList = [
   OnBoardingModel(

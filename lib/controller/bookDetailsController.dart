@@ -142,7 +142,7 @@ class BookDetailsControllerImp extends BookDetailsController {
   @override
   getSummary() {
      try{
-if (summraize == "") {
+  if (summraize == "") {
       var x="" ; 
       if(Get.locale ==const Locale("fr")) {
           x="resume ce livre ${book.name} en francais"  ; 
@@ -159,12 +159,13 @@ if (summraize == "") {
       final gemini = Gemini.instance;
       gemini.text(x)
   .then((value) {
-    value != null  ? summraize = value?.output.toString()    :  summraize = "x" ;    
+    value != null  ? summraize = value.output.toString()    :  summraize = "x" ;    
           geminiStatus=StatusRequest.success; 
           update()  ; 
 
     
     }    )  // or value?.content?.parts?.last.text
+  // ignore: invalid_return_type_for_catch_error
   .catchError((e) => print(e));
 
       

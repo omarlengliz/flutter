@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:ktebbi/controller/auth/signUpController.dart';
 import 'package:ktebbi/core/class/statusRequest.dart';
-import 'package:ktebbi/core/constants/routes.dart';
 import 'package:ktebbi/core/constants/sizes.dart';
 import 'package:ktebbi/core/functions/helper.dart';
 import 'package:ktebbi/views/widgets/auth/formDivider.dart';
@@ -13,7 +12,7 @@ import 'package:ktebbi/views/widgets/loader.dart';
 import '../../../core/constants/color.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+  const  SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
